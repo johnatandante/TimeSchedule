@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="TimeSchedulerApp" ng-controller="mainController">
+<head>
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+
+    <script src="libs/jquery-2.1.4.min.js"></script>
+    <script src="libs/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="libs/angular-1.4.6/angular.min.js"></script>
+    <script src="libs/angular-1.4.6/angular-resource.min.js"></script>
+    <script src="libs/angular-1.4.6/angular-route.min.js"></script>
+
+    <script src="services/localDataService.js"></script>
+    <script src="controllers/mainControllers.js"></script>
+    <script src="mainApp.js"></script>
+
+    <title>{{appName}} - versione {{version}}</title>
+</head>
+<body class="panel-body">    
+    <div class="panel-heading">        
+        <nav class="collapse navbar-collapse" ng-controller="navController as navc">            
+            <nav class="nav navbar-nav navbar-header h2">{{appFullName}}</nav>
+            <div class="pull-right">
+                <ul class="nav navbar-nav" ng-repeat="menu in navc.locations | isvisible:'visible'">
+                    <li ng-class="{ active: navc.isActive(menu.location)}"><a href="{{menu.location}}">{{menu.name}}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <login-bar class="panel" ng-controller="userInfoController as userInfo">
+            <div class="notLoggedIn" ng-show="!userInfo.isLoggedIn()">
+                <a href="login">Log in</a> or <a href="signUp"> Sign Up</a>
+            </div>
+            <div class="loggedIn" ng-show="userInfo.isLoggedIn()">
+                User logged in: {{userInfo.utenteCorrente}} <br /> on <b>{{userInfo.dateLogin}} <i>{{userInfo.timeLogin}}</i></b>
+            </div>
+        </login-bar>
+    </div>
+
+    <div ng-view > </div>
+
+</body>
+</html>

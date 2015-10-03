@@ -1,0 +1,56 @@
+﻿<planned-activities class="panel">
+    <h2>Planned Activities</h2>
+    <form class="form-inline searchForm">
+        <label>Filter for: </label>
+        <input class="form-control" type="text" title="Search activity" ng-model="plan.query" />
+    </form>
+    <div class="panel">
+        <ul class="list-group plannedActivityList">
+            <li class="list-group-item" ng-repeat="activity in plan.activityTodo | unvisible:'done' | filter:plan.query | orderBy:time">
+                <planned-activity-item>
+                    <form class="form-inline">
+                        <label class="h4 spacer-post">{{activity.description}}</label>
+                        <label>From: </label>
+                        <select class="form-control" title="From" ng-model="activity.time"
+                                ng-options="p for p in plan.planTime"></select>
+                        <label>For how long: </label>
+                        <input class="form-control" type="number" min="1" max="8" title="How Long"
+                               ng-model="activity.howLong" />
+                        <button class="form-control pull-right" title="Completed" ng-click="plan.LogActivitiy($event, activity)">Completed!</button>
+                    </form>
+                </planned-activity-item>
+            </li>
+        </ul>
+    </div>
+</planned-activities>
+<schedule-plan class="panel">
+    <h2>Schedule Plan - Day {{plan.day}}</h2>
+    <schedule-table-item-collection class="scheduleTable">
+        <schedule-table-header class="scheduleTableRow">
+            <div class="timeSlotsTable">
+                <h3>Time slots</h3>
+            </div>
+            <div class="activitiesTable">
+                <h3>Activities</h3>
+            </div>
+            <div class="dailyActivitiesTable">
+                <h3>Daily Activities</h3>
+            </div>
+        </schedule-table-header>
+    </schedule-table-item-collection>
+
+    <schedule-table-item-collection class="scheduleTable">
+        <schedule-table-item class="scheduleTableRow" ng-repeat="activity in plan.activityLogged | orderBy:time">
+            <div class="timeSlotsTable timeSlotsTableItem">
+                {{activity.time}}
+            </div>
+            <div class="activitiesTable">
+                {{activity.description}}
+            </div>
+            <div class="dailyActivitiesTable">
+                {{activity.scheduled}}
+            </div>
+        </schedule-table-item>
+    </schedule-table-item-collection>
+
+</schedule-plan>

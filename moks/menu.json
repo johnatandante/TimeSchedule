@@ -1,0 +1,38 @@
+﻿[
+    {
+        "order":  0,
+        "name": "Home",
+        "location": "/#/home",
+        "visible": true
+    },
+    {
+        "order": 1,
+        "name": "Schedule",
+        "location": "/#/schedule",
+        "visible": false
+    },
+    {
+        "order": 2,
+        "name": "User Info",
+        "location": "/#/user",
+        "visible": false
+    },
+    {
+        "order": 3,
+        "name": "About",
+        "location": "/#/about",
+        "visible": true
+    },
+    {
+        "order": 4,
+        "name": "Login",
+        "location": "/#/login",
+        "visible": false
+    },
+    {
+        "order": 5,
+        "name": "Sign Up",
+        "location": "/#/signup",
+        "visible": false
+    }
+]

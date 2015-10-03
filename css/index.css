@@ -1,0 +1,70 @@
+﻿h1{
+    color: darkviolet;
+}
+
+h2 {
+    color:mediumvioletred;
+}
+
+h3{
+    color: blueviolet;
+    
+}
+
+login-bar{
+    text-align: right;
+}
+
+.loggedIn{
+    color:blueviolet;
+}
+
+.notLoggedIn{
+    color:darkblue;
+}
+
+schedule-table-item-collection{
+    display: table;
+}
+
+.scheduleTableRow {
+    display: table-row;
+}
+
+.timeSlotsTable{
+    min-width: 125px;
+    display: table-cell;
+}
+
+.timeSlotsTableItem{
+    text-align: center;
+}
+
+
+.activitiesTable,
+.dailyActivitiesTable
+{
+    min-width: 280px;
+    display: table-cell;
+}
+
+.plannedActivityList{
+    /*max-height: 220px;
+    overflow:hidden; 
+    overflow-y:scroll;
+        */
+}
+
+.searchForm{
+    text-align: right;
+    margin-bottom: 12px;
+    
+    margin-top: -36px;
+    overflow:visible;    
+}
+
+.spacer-post{
+    margin-left: 6px;
+    margin-right: 12px;
+
+}
