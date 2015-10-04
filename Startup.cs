@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
+using Microsoft.AspNet.StaticFiles;
 using Microsoft.Framework.DependencyInjection;
+//using Microsoft.AspNet.FileSystems;
 
 namespace TimeSchedule
 {
@@ -19,11 +21,17 @@ namespace TimeSchedule
         {
             // to use static files
             // https://wipdeveloper.com/2015/04/02/asp-net-5-and-static-files/
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
             //app.Run(async (context) =>
             //{
             //    await context.Response.WriteAsync("Hello World!");
             //});
+            
+            app.UseFileServer(new FileServerOptions()
+            {
+                EnableDirectoryBrowsing = true,
+                //FileSystem = new PhysicalFileSystem("/")
+            });
         }
     }
 }
