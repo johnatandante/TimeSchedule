@@ -33,7 +33,7 @@ localDataService.factory('Schedule', ['$resource',
 
 localDataService.factory('Menu', ['$resource',
   function ($resource) {
-      return $resource('moks/menu.json', {}, {
+      return $resource('moks/menu.json?'+Math.random().toString(), {}, {
           query: {
               method: 'GET',
               isArray: true

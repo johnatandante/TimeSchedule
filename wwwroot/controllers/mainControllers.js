@@ -1,4 +1,5 @@
-﻿var mainControllers = angular.module('mainControllers', ['localDataService']);
+﻿
+var mainControllers = angular.module('mainControllers', ['localDataService']);
 
 mainControllers.controller('userInfoController',
     ['UserInfo', function (UserInfo) {
@@ -14,7 +15,7 @@ mainControllers.controller('userInfoController',
         };
 
         thisObj.isLoggedIn = function () {
-            return thisObj.userInfo && thisObj.userInfo.name;
+            return thisObj.userInfo.name && thisObj.userInfo.name != undefined;
         };
 
         UserInfo.query(function (data) {
@@ -25,7 +26,7 @@ mainControllers.controller('userInfoController',
             thisObj.utenteCorrente = thisObj.userInfo.name + " " + thisObj.userInfo.lastName;
             thisObj.dateLogin = thisObj.userInfo.loginHistory.sort()[thisObj.userInfo.loginHistory.length - 1].when;
             thisObj.timeLogin = "";
-
+            //thisObj.resetData();
         });
 
     }]);
@@ -123,7 +124,6 @@ mainControllers.filter('unvisible', function () {
         if (!data)
             return ret;
 
-        var ret = [];
         angular.forEach(data, function (item) {
             if (!item[property])
                 ret.push(item);
@@ -169,6 +169,25 @@ mainControllers.controller('navController',
         this.isActive = function (viewLocation) {
             return viewLocation === $location.path()
                 && thisObj.locations[viewLocation];
+        };
+        
+        this.getLocationUpdatedFor = function(userInfo) {
+            var userLogged = userInfo && userInfo.isLoggedIn();
+            var item;
+            for(var i = 0;i<thisObj.locations.length;i++) {
+                item = thisObj.locations[i];
+                item.visible = !thisObj.locations[i].disabled; 
+                // if loggedIn then isloggedin must be true
+                if (item.showAlways)
+                    item.visible = item.visible && true;
+                else if(item.loggedIn)
+                    item.visible = item.visible && userLogged;
+                else 
+                    item.visible = !userLogged;
+                    
+            }
+            
+            return thisObj.locations;
         };
 
     }]);

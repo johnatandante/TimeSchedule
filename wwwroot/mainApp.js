@@ -20,8 +20,8 @@
             }).
             when('/login', {
                 templateUrl: "views/login.html",
-                controller: "schedulePlan",
-                controllerAs: "plan"
+                controller: "loginUser",
+                controllerAs: "login"
             }).
             when('/signup', {
                 templateUrl: "views/signup.html",

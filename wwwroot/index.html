@@ -19,21 +19,18 @@
 
     <title>{{appName}} - versione {{version}}</title>
 </head>
-<body class="panel-body">    
+<body class="panel-body" ng-controller="userInfoController as userInfo">    
     <div class="panel-heading">        
         <nav class="collapse navbar-collapse" ng-controller="navController as navc">            
             <nav class="nav navbar-nav navbar-header h2">{{appFullName}}</nav>
             <div class="pull-right">
-                <ul class="nav navbar-nav" ng-repeat="menu in navc.locations | isvisible:'visible'">
+                <ul class="nav navbar-nav" ng-repeat="menu in navc.getLocationUpdatedFor(userInfo) | isvisible:'visible'">
                     <li ng-class="{ active: navc.isActive(menu.location)}"><a href="{{menu.location}}">{{menu.name}}</a></li>
                 </ul>
             </div>
         </nav>
 
-        <login-bar class="panel" ng-controller="userInfoController as userInfo">
-            <div class="notLoggedIn" ng-show="!userInfo.isLoggedIn()">
-                <a href="login">Log in</a> or <a href="signUp"> Sign Up</a>
-            </div>
+        <login-bar class="panel" >
             <div class="loggedIn" ng-show="userInfo.isLoggedIn()">
                 User logged in: {{userInfo.utenteCorrente}} <br /> on <b>{{userInfo.dateLogin}} <i>{{userInfo.timeLogin}}</i></b>
             </div>

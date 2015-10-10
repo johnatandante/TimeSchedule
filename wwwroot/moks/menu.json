@@ -3,36 +3,35 @@
         "order":  0,
         "name": "Home",
         "location": "/#/home",
-        "visible": true
+        "showAlways": true
     },
     {
         "order": 1,
         "name": "Schedule",
         "location": "/#/schedule",
-        "visible": false
+        "disabled": false,
+        "loggedIn": true
     },
     {
         "order": 2,
         "name": "User Info",
         "location": "/#/user",
-        "visible": false
+        "loggedIn": true
     },
     {
         "order": 3,
         "name": "About",
         "location": "/#/about",
-        "visible": true
+        "showAlways": true
     },
     {
         "order": 4,
         "name": "Login",
-        "location": "/#/login",
-        "visible": false
+        "location": "/#/login"
     },
     {
         "order": 5,
         "name": "Sign Up",
-        "location": "/#/signup",
-        "visible": false
+        "location": "/#/signup"
     }
 ]
