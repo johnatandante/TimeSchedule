@@ -32,7 +32,8 @@
     {
         "order": 5,
         "name": "Sign Up",
-        "location": "/#/signup"
+        "location": "/#/signup",
+        "disabled": true
     },
     {
         "order": 9,

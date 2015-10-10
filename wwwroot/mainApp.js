@@ -15,18 +15,16 @@
             }).
             when("/about", {
                 templateUrl: "/views/about.html",
-                controller: "schedulePlan",
-                controllerAs: "plan"
             }).
             when('/login', {
                 templateUrl: "views/login.html",
-                controller: "userInfo",
+                controller: "userInfoController",
                 controllerAs: "user"
             }).
             when('/signup', {
                 templateUrl: "views/signup.html",
-                controller: "schedulePlan",
-                controllerAs: "plan"
+                controller: "userInfoController",
+                controllerAs: "user"
             }).
             when('/logout', {
                 templateUrl: "views/logout.html",

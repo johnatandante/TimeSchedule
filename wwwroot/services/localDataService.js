@@ -12,7 +12,7 @@ localDataService.factory('TimeSchedule', ['$resource',
 
 localDataService.factory('UserInfo', ['$resource',
   function ($resource) {
-      return $resource('moks/userData.json', {}, {
+      return $resource('moks/userData.json?'+Math.random().toString(), {}, {
           query: {
               method: 'GET',
               isArray: false

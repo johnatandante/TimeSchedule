@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="TimeSchedulerApp" ng-controller="mainController">
+<html ng-app="TimeSchedulerApp" ng-controller="mainController as main">
 <head>
     
     <base href="/">
@@ -19,8 +19,8 @@
 
     <title>{{appName}} - versione {{version}}</title>
 </head>
-<body class="panel-body" ng-controller="userInfo as user">    
-    <div class="panel-heading">        
+<body class="panel-body" ng-controller="userInfoController as user">
+        <div class="panel-heading">        
         <nav class="collapse navbar-collapse" ng-controller="navController as navc">            
             <nav class="nav navbar-nav navbar-header h2">{{appFullName}}</nav>
             <div class="pull-right">
@@ -31,8 +31,10 @@
         </nav>
 
         <login-bar class="panel" >
-            <div class="loggedIn" ng-show="user.isLoggedIn()">
-                User logged in: {{user.utenteCorrente}} <br /> on <b>{{user.dateLogin}} <i>{{user.timeLogin}}</i></b>
+            ng-show="user.isUserLoggedIn(userInfo)"
+            {{userInfo.userName}} is logged in? {{user.isUserLoggedIn(userInfo)}}
+            <div class="loggedIn" >
+                User logged in: {{userInfo.utenteCorrente}} <br /> on <b>{{userInfo.dateLogin}} <i>{{userInfo.timeLogin}}</i></b>
             </div>
         </login-bar>
     </div>
