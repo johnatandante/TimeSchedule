@@ -20,13 +20,18 @@
             }).
             when('/login', {
                 templateUrl: "views/login.html",
-                controller: "loginUser",
-                controllerAs: "login"
+                controller: "userInfo",
+                controllerAs: "user"
             }).
             when('/signup', {
                 templateUrl: "views/signup.html",
                 controller: "schedulePlan",
                 controllerAs: "plan"
+            }).
+            when('/logout', {
+                templateUrl: "views/logout.html",
+                controller: "logOutController",
+                controllerAs: "logOut"
             }).
             otherwise({
                 redirectTo: '/home'

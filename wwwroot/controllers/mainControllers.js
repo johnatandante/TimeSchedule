@@ -1,21 +1,28 @@
 ﻿
 var mainControllers = angular.module('mainControllers', ['localDataService']);
 
-mainControllers.controller('userInfoController',
-    ['UserInfo', function (UserInfo) {
+mainControllers.controller('userInfo',
+    ['UserInfo', '$scope', function (UserInfo, $scope) {
         var thisObj = this;
 
-        thisObj.resetData = function () {
+        this.resetData = function () {
             thisObj.userInfo = {};
 
             thisObj.utenteCorrente = "";
             thisObj.dateLogin = "";
             thisObj.timeLogin = "";
-
+            
         };
 
-        thisObj.isLoggedIn = function () {
-            return thisObj.userInfo.name && thisObj.userInfo.name != undefined;
+        this.isLoggedIn = function () {
+            return thisObj.userInfo 
+                && thisObj.userInfo.name 
+                && thisObj.userInfo.name != undefined;
+        };
+ 
+        this.logOut = function() {
+            thisObj.resetData();
+              
         };
 
         UserInfo.query(function (data) {
@@ -28,7 +35,27 @@ mainControllers.controller('userInfoController',
             thisObj.timeLogin = "";
             //thisObj.resetData();
         });
+        
+        $scope.userInfoController = thisObj;
 
+    }]);
+
+mainControllers.controller('logOutController',
+    ['$scope', function ($scope) {
+        var thisObj = this;
+
+        this.resetData = function () {
+            // 
+            thisObj.name = $scope.userInfoController.userInfo.name;
+        };
+        
+        this.resetData();
+        
+        this.logOutUser = function() {
+            $scope.userInfoController.logOut();
+            
+        };
+        
     }]);
 
 mainControllers.controller('schedulePlan',
@@ -174,7 +201,7 @@ mainControllers.controller('navController',
         this.getLocationUpdatedFor = function(userInfo) {
             var userLogged = userInfo && userInfo.isLoggedIn();
             var item;
-            for(var i = 0;i<thisObj.locations.length;i++) {
+            for(var i = 0; thisObj.locations && i<thisObj.locations.length;i++) {
                 item = thisObj.locations[i];
                 item.visible = !thisObj.locations[i].disabled; 
                 // if loggedIn then isloggedin must be true
@@ -188,6 +215,14 @@ mainControllers.controller('navController',
             }
             
             return thisObj.locations;
+        };
+        
+        this.doAction = function(menuItem, userInfo) {
+            if(!menuItem.action)
+                return;
+            
+            userInfo[menuItem.action]();
+            
         };
 
     }]);

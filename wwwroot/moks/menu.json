@@ -33,5 +33,11 @@
         "order": 5,
         "name": "Sign Up",
         "location": "/#/signup"
+    },
+    {
+        "order": 9,
+        "name": "Log out",
+        "location": "/#/logout",
+        "loggedIn": true
     }
 ]
