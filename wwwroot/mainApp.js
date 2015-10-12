@@ -1,4 +1,4 @@
-﻿var app = angular.module('TimeSchedulerApp',
+var app = angular.module('TimeSchedulerApp',
                             [
                                 'mainControllers',
                                 'ngRoute',
@@ -9,8 +9,13 @@
       function ($routeProvider, $locationProvider) {
           $routeProvider.
             when('/home', {
-                templateUrl: "views/currentPlan.html",
+                templateUrl: "views/home.html",
                 controller: "schedulePlan",
+                controllerAs: "plan"
+            }).
+            when("/schedule", {
+                templateUrl: "/views/schedule.html",
+                controller: "weekSchedule",
                 controllerAs: "plan"
             }).
             when("/about", {
@@ -18,13 +23,18 @@
             }).
             when('/login', {
                 templateUrl: "views/login.html",
-                controller: "userInfoController",
-                controllerAs: "user"
+                controller: "",
+                controllerAs: ""
+            }).
+             when('/user', {
+                templateUrl: "views/userInfo.html",
+                controller: "schedulePlan",
+                controllerAs: "plan"
             }).
             when('/signup', {
                 templateUrl: "views/signup.html",
-                controller: "userInfoController",
-                controllerAs: "user"
+                controller: "",
+                controllerAs: ""
             }).
             when('/logout', {
                 templateUrl: "views/logout.html",
