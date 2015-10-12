@@ -1,7 +1,7 @@
-﻿<about class="panel">
+<about class="panel">
     <h2>Please Log In</h2>
     <div>
-    <form role="form" method="post" ng-submit="user.logIn(userName, password)" novalidate >
+    <form role="form" method="post" ng-submit="userInfo.logIn(userName, password)" novalidate >
         <div class="form-group">
             <label for="usern">Username</label>
         <input class="form-control" type="text" ng-model = "userName" id="usern" required />
@@ -10,10 +10,9 @@
             <label for="pwd">Username</label>
             <input class="form-control" type="password" ng-model = "password" id="pwd" required />
         </div>
-        <input class="form-control" type="submit" value="Sing In" />
-        </form>
+        <input class="form-control" type="submit" value="Sign In" />        
     </form>
     <p>If you don't have any account and you wish to join us, please <a href="/#/signup">Sign Up</a>.</p>
-    <p>Please report any trouble in logging in at <a href="mailto:{{user.mailTo}}">{{user.mailToDescription}}</a>.</p>
+    <p>Please report any trouble in logging in at <a href="mailto:{{mailTo}}">{{mailToDescription}}</a>.</p>
     </div>
 </about>
