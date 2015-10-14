@@ -6,16 +6,17 @@
     </form>
     <div class="panel">
         <ul class="list-group plannedActivityList">
-            <li class="list-group-item" ng-repeat="activity in plan.activityTodo | unvisible:'done' | filter:plan.query | orderBy:time">
+            <li class="list-group-item" ng-repeat="activity in plan.activityTodo | unvisible:'done' | filter:plan.query | orderBy:'time'">
                 <planned-activity-item>
                     <form class="form-inline">
                         <label class="h4 spacer-post">{{activity.description}}</label>
                         <label>From: </label>
                         <select class="form-control" title="From" ng-model="activity.time"
-                                ng-options="p for p in plan.planTime"></select>
+                                ng-options="plan.timeToString(p) for p in plan.planTime"></select>
                         <label>For how long: </label>
                         <input class="form-control" type="number" min="1" max="8" title="How Long"
                                ng-model="activity.howLong" />
+                        <label>(time slots: {{plan.timeToString(plan.timeSlot)}})</label>
                         <button class="form-control pull-right" title="Completed" ng-click="plan.LogActivitiy($event, activity)">Completed!</button>
                     </form>
                 </planned-activity-item>
@@ -42,7 +43,7 @@
     <schedule-table-item-collection class="scheduleTable">
         <schedule-table-item class="scheduleTableRow" ng-repeat="activity in plan.activityLogged | orderBy:time">
             <div class="timeSlotsTable timeSlotsTableItem">
-                {{activity.time}}
+                {{plan.timeToString(activity.time)}}
             </div>
             <div class="activitiesTable">
                 {{activity.description}}
