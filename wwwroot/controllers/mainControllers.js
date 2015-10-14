@@ -1,20 +1,9 @@
+/* global u_timeToString */
 var mainControllers = angular.module('mainControllers', ['localDataService', 'ui.bootstrap']);
 
 mainControllers.controller('logOutController',
     ['$scope', function ($scope) {
-        var thisObj = this;
-
-        this.resetData = function () {
-            // 
-            thisObj.name = $scope.userInfoController.userInfo.name;
-        };
-
-        this.resetData();
-
-        this.logOutUser = function () {
-            $scope.userInfoController.logOut();
-        };
-
+       // empty
     }]);
 
 mainControllers.controller('schedulePlan',
@@ -272,15 +261,14 @@ mainControllers.controller('mainController',
         $scope.mailTo = "dante.delfavero@gmail.com";
         $scope.mailToDescription = "dante.delfavero at gmail.com";
 
-        $scope.utenteCorrente = "";
-        $scope.dateLogin = "";
-        $scope.timeLogin = "";
-        
-        $scope.userInfo = function() {
+        $scope.UserInfo = function() {
             var thisObj = this;
 
             this.resetData = function () {
                 thisObj.userInfo = {};
+                $scope.utenteCorrente = "";
+                $scope.dateLogin = "";
+                $scope.timeLogin = "";
             };
 
             this.isUserLoggedIn = function (userInfo) {
@@ -295,7 +283,7 @@ mainControllers.controller('mainController',
 
             this.logOut = function () {
                 thisObj.resetData();
-                $location.path('/#/')
+                $location.path('/')
             };
 
             this.logIn = function (userName, password) {
@@ -330,7 +318,7 @@ mainControllers.controller('mainController',
             this.resetData();
         };
 
-        $scope.userInfo = new $scope.userInfo();
+        //$scope.userInfo = new UserInfo();
 
         //$scope.userInfo.logIn("dante", "dante");
     }]);
