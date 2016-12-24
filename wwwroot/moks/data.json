@@ -5,27 +5,27 @@
     , "activityTodo": [
         {
             "name": "activity1",
-            "time": "08:00",
+            "time": "1901-01-01T08:00",
             "howLong": 2,
             "description": "activity 1",
             "done": true
         },
         {
             "name": "activity2",
-            "time": "09:00",
+            "time": "1901-01-01T09:00",
             "howLong": 2,
             "description": "activity 2",
                 "done": false
         },
         {
             "name": "activity3",
-            "time": "10:00",
+            "time": "1901-01-01T10:00",
             "howLong": 1,
             "description": "activity 3"
         },
         {
             "name": "activity4",
-            "time": "12:00",
+            "time": "1901-01-01T12:00",
             "howLong": 1,
             "description": "activity 4"
         }
@@ -34,46 +34,46 @@
 
     , "activityLogged": [
         {
-            "time": "08:00",
+            "time": "1901-01-01T08:00",
             "scheduled":  "Activity 1"
         },
         {
-            "time": "08:30",
+            "time": "1901-01-01T08:30",
             "scheduled":  "Activity 2"
         },{
-            "time": "09:00",
+            "time": "1901-01-01T09:00",
             "scheduled":  "Activity 2"
         },
         {
-            "time": "09:30",
+            "time": "1901-01-01T09:30",
             "scheduled":  "Activity 3"
         },{
-            "time": "10:00",
+            "time": "1901-01-01T10:00",
             "scheduled":  "Activity 3"
         },
         {
-            "time": "10:30",
+            "time": "1901-01-01T10:30",
             "scheduled":  "Activity 3"
         },{
-            "time": "11:00",
+            "time": "1901-01-01T11:00",
             "scheduled":  "Activity 3"
         },
         {
-            "time": "11:30",
+            "time": "1901-01-01T11:30",
             "scheduled":  "Activity 3"
         },{
-            "time": "12:00",
+            "time": "1901-01-01T12:00",
             "scheduled":  "Activity 3.1"
         },
         {
-            "time": "12:30",
+            "time": "1901-01-01T12:30",
             "scheduled":  "Activity 3.2"
         },{
-            "time": "13:00",
+            "time": "1901-01-01T13:00",
             "scheduled":  "Activity 4"
         },
         {
-            "time": "13:30",
+            "time": "1901-01-01T13:30",
             "scheduled":  "Activity 4"
         }
     ]

@@ -22,9 +22,7 @@ var app = angular.module('TimeSchedulerApp',
                 templateUrl: "/views/about.html",
             }).
             when('/login', {
-                templateUrl: "views/login.html",
-                controller: "",
-                controllerAs: ""
+                templateUrl: "views/login.html"
             }).
              when('/user', {
                 templateUrl: "views/userInfo.html",
@@ -32,14 +30,10 @@ var app = angular.module('TimeSchedulerApp',
                 controllerAs: "plan"
             }).
             when('/signup', {
-                templateUrl: "views/signup.html",
-                controller: "",
-                controllerAs: ""
+                templateUrl: "views/signup.html"
             }).
             when('/logout', {
-                templateUrl: "views/logout.html",
-                controller: "logOutController",
-                controllerAs: "logOut"
+                templateUrl: "views/logout.html"
             }).
             otherwise({
                 redirectTo: '/home'
